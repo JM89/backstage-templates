@@ -47,8 +47,8 @@ spec:
       name: Fetch Docs
       action: fetch:plain
       input:
-        targetPath: ./community
-        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
+        targetPath: .
+        url: https://github.com/JM89/backstage-templates/tree/main/python-app
 
     - id: publish
       name: Publish
