@@ -1,12 +1,12 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ parameters.name }}
+  name: app-name
   annotations:
-    github.com/project-slug: ${{ parameters.repoUrl }}
+    github.com/project-slug: JM89/app-name
     backstage.io/techdocs-ref: dir:.
   links:
-  - url: https://dashboard.example.com/${{ parameters.name }}
+  - url: https://dashboard.example.com/app-name
     title: My Dashboard
     icon: dashboard
   tags:
