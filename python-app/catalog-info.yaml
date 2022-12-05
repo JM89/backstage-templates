@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ parameters.name }}
+  annotations:
+    github.com/project-slug: ${{ parameters.repoUrl }}
+    backstage.io/techdocs-ref: dir:.
+  links:
+  - url: https://dashboard.example.com/${{ parameters.name }}
+    title: My Dashboard
+    icon: dashboard
+  tags:
+    - domain-one
+    - critical-path
+    - framework-version
+spec:
+  type: service
+  owner: jm89
+  lifecycle: experimental
+  dependsOn:
+    - resource:JM89/test-distributed-tracing
+    - component:demo
