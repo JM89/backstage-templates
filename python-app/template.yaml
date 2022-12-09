@@ -62,13 +62,6 @@ spec:
           app_id: ${{ parameters.appId }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
 
-    - id: fetch-docs
-      name: Fetch Docs
-      action: fetch:plain
-      input:
-        targetPath: .
-        url: https://github.com/JM89/backstage-templates/tree/main/python-app
-
     - id: publish
       name: Publish
       action: publish:github
