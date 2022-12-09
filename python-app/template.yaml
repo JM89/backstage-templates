@@ -10,7 +10,6 @@ metadata:
 spec:
   owner: jm89
   type: service
-  # these are the steps which are rendered in the frontend with the form input
   parameters:
     - title: Fill in some steps
       required:
@@ -22,9 +21,7 @@ spec:
           title: Unique App ID 
           type: string
           description: "Unique App ID (e.g.: backstage-component-test)"
-          ui:autofocus: true
-          ui:options:
-            rows: 1
+          ui:field: EntityNamePicker
         appFriendlyName:
           title: App Friendly Name
           type: string
@@ -57,12 +54,12 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./template
+        url: ./skeleton
         values:
           friendly_name: ${{ parameters.appFriendlyName }}
           description: ${{ parameters.appDescription }}
           repo_url: ${{ parameters.repoUrl }}
-          name: ${{ parameters.appId }}
+          app_id: ${{ parameters.appId }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
 
     - id: fetch-docs
@@ -78,6 +75,7 @@ spec:
       input:
         allowedHosts: ['github.com']
         repoUrl: ${{ parameters.repoUrl }}
+        description: ${{ parameters.appDescription }}
         defaultBranch: main
 
     - id: register
@@ -86,3 +84,11 @@ spec:
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
+        
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.register.output.entityRef }}
