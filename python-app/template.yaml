@@ -19,7 +19,7 @@ spec:
         appId: 
           title: Unique App ID 
           type: string
-          description: Unique App ID (e.g.: backstage-component-test)
+          description: "Unique App ID (e.g.: backstage-component-test)"
           ui:autofocus: true
           ui:options:
             rows: 1
