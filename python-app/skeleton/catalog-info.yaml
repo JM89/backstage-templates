@@ -13,7 +13,7 @@ metadata:
   tags:
     - domain-one
     - critical-path
-    - python-3.8
+    - python-38
 spec:
   type: service
   owner: ${{values.destination.owner | dump}}
