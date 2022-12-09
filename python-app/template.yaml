@@ -14,7 +14,15 @@ spec:
       required:
         - appFriendlyName
         - appDescription
+        - appId
       properties:
+        appId: 
+          title: Unique App ID 
+          type: string
+          description: Unique App ID (e.g.: backstage-component-test)
+          ui:autofocus: true
+          ui:options:
+            rows: 1
         appFriendlyName:
           title: App Friendly Name
           type: string
@@ -52,6 +60,7 @@ spec:
           friendly_name: ${{ parameters.appFriendlyName }}
           description: ${{ parameters.appDescription }}
           repo_url: ${{ parameters.repoUrl }}
+          name: ${{ parameters.appId }}
 
     - id: fetch-docs
       name: Fetch Docs
