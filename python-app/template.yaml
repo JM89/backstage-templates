@@ -4,10 +4,12 @@ metadata:
   name: python-app
   title: Python app template
   description: Python app template
+  tags:
+    - recommended
+    - python
 spec:
-  owner: backstage/techdocs-core
+  owner: jm89
   type: service
-
   # these are the steps which are rendered in the frontend with the form input
   parameters:
     - title: Fill in some steps
