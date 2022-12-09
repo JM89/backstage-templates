@@ -77,6 +77,7 @@ spec:
         friendly_name: ${{ parameters.appFriendlyName }}
         description: ${{ parameters.appDescription }}
         repoUrl: ${{ parameters.repoUrl }}
+        name: ${{ parameters.appId }}
         defaultBranch: main
 
     - id: register
