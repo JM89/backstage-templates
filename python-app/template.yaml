@@ -12,12 +12,20 @@ spec:
   parameters:
     - title: Fill in some steps
       required:
-        - friendly_name
+        - app_friendly_name
+        - app_description
       properties:
-        friendly_name:
-          title: Friendly Name
+        app_friendly_name:
+          title: App Friendly Name
           type: string
           description: Friendly Name for the application.
+          ui:autofocus: true
+          ui:options:
+            rows: 1
+        app_description:
+          title: App Description
+          type: string
+          description: Description of what the app will do
           ui:autofocus: true
           ui:options:
             rows: 5
@@ -41,7 +49,8 @@ spec:
       input:
         url: ./template
         values:
-          friendly_name: ${{ parameters.friendly_name }}
+          friendly_name: ${{ parameters.app_friendly_name }}
+          description: ${{ parameters.app_description }}
 
     - id: fetch-docs
       name: Fetch Docs
