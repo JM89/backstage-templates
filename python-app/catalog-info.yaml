@@ -1,13 +1,13 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{values.name}}
-  description: ${{values.description}}
+  name: ${{values.name | dump}}
+  description: ${{values.description | dump}}
   annotations:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     backstage.io/techdocs-ref: dir:.
   links:
-  - url: https://dashboard.example.com/${{ values.name }}
+  - url: https://dashboard.example.com/${{ values.name | dump }}
     title: My Dashboard
     icon: dashboard
   tags:
