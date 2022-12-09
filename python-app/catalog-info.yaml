@@ -1,10 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.name }}
-  description: ${{ values.description }}
+  name: ${{values.name}}
+  description: ${{values.description}}
   annotations:
-    github.com/project-slug: JM89/${{ values.name }}
+    github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     backstage.io/techdocs-ref: dir:.
   links:
   - url: https://dashboard.example.com/${{ values.name }}
@@ -16,7 +16,7 @@ metadata:
     - framework-version
 spec:
   type: service
-  owner: jm89
+  owner: ${{values.destination.owner | dump}}
   lifecycle: experimental
   dependsOn:
     - resource:JM89/test-distributed-tracing
