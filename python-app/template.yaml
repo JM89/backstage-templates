@@ -12,17 +12,17 @@ spec:
   parameters:
     - title: Fill in some steps
       required:
-        - app_friendly_name
-        - app_description
+        - appFriendlyName
+        - appDescription
       properties:
-        app_friendly_name:
+        appFriendlyName:
           title: App Friendly Name
           type: string
           description: Friendly Name for the application.
           ui:autofocus: true
           ui:options:
             rows: 1
-        app_description:
+        appDescription:
           title: App Description
           type: string
           description: Description of what the app will do
@@ -49,8 +49,9 @@ spec:
       input:
         url: ./template
         values:
-          friendly_name: ${{ parameters.app_friendly_name }}
-          description: ${{ parameters.app_description }}
+          friendly_name: ${{ parameters.appFriendlyName }}
+          description: ${{ parameters.appDescription }}
+          repo_url: ${{ parameters.repoUrl }}
 
     - id: fetch-docs
       name: Fetch Docs
@@ -64,7 +65,8 @@ spec:
       action: publish:github
       input:
         allowedHosts: ['github.com']
-        description: This is ${{ parameters.friendly_name }}
+        friendly_name: ${{ parameters.appFriendlyName }}
+        description: ${{ parameters.appDescription }}
         repoUrl: ${{ parameters.repoUrl }}
         defaultBranch: main
 
