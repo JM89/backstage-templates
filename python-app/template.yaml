@@ -41,7 +41,7 @@ spec:
       input:
         url: ./template
         values:
-          name: ${{ parameters.friendly_name }}
+          friendly_name: ${{ parameters.friendly_name }}
 
     - id: fetch-docs
       name: Fetch Docs
