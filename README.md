@@ -1,2 +1,2 @@
-# Backstage Software Template 
+# Backstage Software Templates
 
